@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Tiket - KONSERIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="top-nav">
+            <div class="nav-left">
+                <button class="menu-toggle-btn" id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <h1 class="app-title">KONSERIN</h1>
+            </div>
+            <div class="nav-right">
+                <div class="dropdown-wrapper">
+                    <a href="#" title="Notifikasi" class="header-icon" id="notification-bell"><i class="fas fa-bell"></i><span class="notification-dot"></span></a>
+                    <div class="dropdown-panel notifications" id="notification-panel">
+                        <div class="panel-header"><h4>Notifikasi</h4></div>
+                        <div class="panel-body">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-ticket-alt icon-success"></i><div class="message"><p><strong>Tiket Terjual!</strong> 2 tiket untuk konser Coldplay.</p><small>5 menit yang lalu</small></div></a></li>
+                                <li><a href="#"><i class="fas fa-microphone-alt icon-info"></i><div class="message"><p><strong>Artis Baru!</strong> Taylor Swift ditambahkan ke sistem.</p><small>1 jam yang lalu</small></div></a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer"><a href="#">Lihat Semua Notifikasi</a></div>
+                    </div>
+                </div>
+                <div class="dropdown-wrapper">
+                    <a href="login.html" title="Login" class="header-icon"><i class="fas fa-sign-in-alt"></i></a>
+                </div>
+            </div>
+        </header>
+
+        <aside class="sidebar">
+            <div class="sidebar-user">
+                <img src="logo skanic.png" alt="Logo" class="user-avatar">
+                <div class="user-info">
+                    <span class="user-name">Admin Konser</span>
+                    <span class="user-role">Administrator</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <span class="nav-section-title">MENU UTAMA</span>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i><span>Beranda</span></a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle"><i class="fas fa-compact-disc"></i><span>Manajemen Konser</span><i class="fas fa-chevron-right arrow"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="data-pemesanan.html" class="active">Pemesanan Tiket</a></li>
+                            <li><a href="data-konser.html">Jadwal Konser</a></li>
+                            <li><a href="data-artis.html">Manajemen Artis</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h2>Manajemen Pemesanan Tiket</h2>
+                <p>Kelola semua data pemesanan tiket konser.</p>
+            </div>
+            
+            <div class="card">
+                <div class="toolbar">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Cari (Kode, Nama)...">
+                    </div>
+                    <a href="#" class="btn btn-primary" id="tambahBtn">
+                        <i class="fas fa-plus"></i> Tambah Pemesanan
+                    </a>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Kode Booking</th>
+                                <th>Nama Pembeli</th>
+                                <th>Konser</th>
+                                <th>Status Pembayaran</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td>1</td>
+                                <td>BK-2509-001</td>
+                                <td>Fathan Ali Khalifah</td>
+                                <td>Coldplay - Music of The Spheres</td>
+                                <td><span class="status-active">Lunas</span></td>
+                                <td class="actions">
+                                    <button class="btn-action btn-edit" title="Ubah"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>2</td>
+                                <td>BK-2509-002</td>
+                                <td>Reny Hidayatus Sholekha</td>
+                                <td>Taylor Swift - The Eras Tour</td>
+                                <td><span class="status-inactive">Pending</span></td>
+                                <td class="actions">
+                                    <button class="btn-action btn-edit" title="Ubah"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>BK-2509-003</td>
+                                <td>Nazwa Nazilla</td>
+                                <td>Lana Del Rey - Brooklyn Baby</td>
+                                <td><span class="status-inactive">Pending</span></td>
+                                <td class="actions">
+                                    <button class="btn-action btn-edit" title="Ubah"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>BK-2509-004</td>
+                                <td>Yukafii</td>
+                                <td>Bruno Mars - It Will Rain</td>
+                                <td><span class="status-active">Lunas</span></td>
+                                <td class="actions">
+                                    <button class="btn-action btn-edit" title="Ubah"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>BK-2509-005</td>
+                                <td>Abdul Haqim</td>
+                                <td>Coldplay - Music of The Spheres</td>
+                                <td><span class="status-active">Lunas</span></td>
+                                <td class="actions">
+                                    <button class="btn-action btn-edit" title="Ubah"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>BK-2509-006</td>
+                                <td>Anggun Permatasari</td>
+                                <td>Dewa19 - Separuh Nafas</td>
+                                <td><span class="status-inactive">Pending</span></td>
+                                <td class="actions">
+                                    <button class="btn-action btn-edit" title="Ubah"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle">Tambah Pemesanan</h2>
+            <form id="pemesananForm">
+                <input type="hidden" id="editIndex">
+                <div class="form-group">
+                    <label for="kodeBooking">Kode Booking</label>
+                    <input type="text" id="kodeBooking" required>
+                </div>
+                <div class="form-group">
+                    <label for="namaPembeli">Nama Pembeli</label>
+                    <input type="text" id="namaPembeli" required>
+                </div>
+                <div class="form-group">
+                    <label for="konser">Konser</label>
+                    <select id="konser" required>
+                        <option value="Coldplay - Music of The Spheres">Coldplay - Music of The Spheres</option>
+                        <option value="Taylor Swift - The Eras Tour">Taylor Swift - The Eras Tour</option>
+                        <option value="Dewa 19 - Separuh Nafas">Dewa 19 - Separuh Nafas</option>
+                        <option value="Lana Del Rey - Brooklyn Baby">Lana Del Rey - Brooklyn Baby</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="status">Status Pembayaran</label>
+                    <select id="status" required>
+                        <option value="Lunas">Lunas</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ===================================
+        // SCRIPT UNTUK FUNGSI UTAMA LAYOUT
+        // ===================================
+        const menuToggle = document.getElementById('menu-toggle');
+        const pageWrapper = document.querySelector('.page-wrapper');
+        const notificationBell = document.getElementById('notification-bell');
+        const notificationPanel = document.getElementById('notification-panel');
+
+        // Toggle Sidebar
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => pageWrapper.classList.toggle('sidebar-collapsed'));
+        }
+
+        // Dropdown Menu Sidebar
+        document.querySelectorAll('.dropdown-toggle').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                item.parentElement.classList.toggle('active');
+            });
+        });
+
+        // Dropdown Notifikasi
+        if (notificationBell) {
+            notificationBell.addEventListener('click', e => {
+                e.preventDefault();
+                e.stopPropagation();
+                notificationPanel.classList.toggle('show');
+            });
+        }
+        window.addEventListener('click', () => {
+            if (notificationPanel && notificationPanel.classList.contains('show')) {
+                notificationPanel.classList.remove('show');
+            }
+        });
+
+        // ===================================
+        // SCRIPT KHUSUS HALAMAN INI (CRUD Pemesanan)
+        // ===================================
+        const modal = document.getElementById('formModal');
+        const tambahBtn = document.getElementById('tambahBtn');
+        const closeBtn = document.querySelector('.close-button');
+        const form = document.getElementById('pemesananForm');
+        const modalTitle = document.getElementById('modalTitle');
+        const tableBody = document.getElementById('tableBody');
+        const editIndexInput = document.getElementById('editIndex');
+
+        const openModal = (title, data = {}, index = -1) => {
+            modalTitle.textContent = title;
+            form.reset();
+            document.getElementById('kodeBooking').value = data.kodeBooking || '';
+            document.getElementById('namaPembeli').value = data.namaPembeli || '';
+            document.getElementById('konser').value = data.konser || 'Coldplay - Music of The Spheres';
+            document.getElementById('status').value = data.status || 'Lunas';
+            editIndexInput.value = index;
+            modal.style.display = 'block';
+        };
+
+        const closeModal = () => modal.style.display = 'none';
+
+        if (tambahBtn) tambahBtn.addEventListener('click', e => {
+            e.preventDefault();
+            openModal('Tambah Pemesanan');
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', e => { if (e.target == modal) closeModal(); });
+
+        if (form) form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const kodeBooking = document.getElementById('kodeBooking').value;
+            const namaPembeli = document.getElementById('namaPembeli').value;
+            const konser = document.getElementById('konser').value;
+            const status = document.getElementById('status').value;
+            const editIndex = editIndexInput.value;
+            const statusClass = status === 'Lunas' ? 'status-active' : 'status-inactive';
+
+            if (editIndex === '-1') {
+                const newRow = tableBody.insertRow();
+                newRow.innerHTML = `
+                    <td>${tableBody.rows.length}</td>
+                    <td>${kodeBooking}</td>
+                    <td>${namaPembeli}</td>
+                    <td>${konser}</td>
+                    <td><span class="${statusClass}">${status}</span></td>
+                    <td class="actions">
+                        <button class="btn-action btn-edit" title="Ubah"><i class="fas fa-edit"></i></button>
+                        <button class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+            } else {
+                const row = tableBody.rows[editIndex];
+                row.cells[1].textContent = kodeBooking;
+                row.cells[2].textContent = namaPembeli;
+                row.cells[3].textContent = konser;
+                row.cells[4].innerHTML = `<span class="${statusClass}">${status}</span>`;
+            }
+            closeModal();
+        });
+
+        if (tableBody) tableBody.addEventListener('click', function(e) {
+            const target = e.target.closest('button');
+            if (!target) return;
+            const row = target.closest('tr');
+
+            if (target.classList.contains('btn-delete')) {
+                if (confirm('Yakin ingin menghapus data ini?')) {
+                    row.remove();
+                    Array.from(tableBody.rows).forEach((r, i) => r.cells[0].textContent = i + 1);
+                }
+            }
+
+            if (target.classList.contains('btn-edit')) {
+                const data = {
+                    kodeBooking: row.cells[1].textContent,
+                    namaPembeli: row.cells[2].textContent,
+                    konser: row.cells[3].textContent,
+                    status: row.cells[4].textContent,
+                };
+                openModal('Ubah Data Pemesanan', data, row.rowIndex - 1);
+            }
+        });
+    });
+</script>
+</body>
+</html>
