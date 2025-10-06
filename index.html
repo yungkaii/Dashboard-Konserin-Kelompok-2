@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard KONSERIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <header class="top-nav">
+            <div class="nav-left">
+                <button class="menu-toggle-btn" id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <h1 class="app-title">KONSERIN</h1>
+            </div>
+            <div class="nav-right">
+                <div class="dropdown-wrapper">
+                    <a href="#" title="Notifikasi" class="header-icon" id="notification-bell"><i class="fas fa-bell"></i><span class="notification-dot"></span></a>
+                    <div class="dropdown-panel notifications" id="notification-panel">
+                        <div class="panel-header"><h4>Notifikasi</h4></div>
+                        <div class="panel-body">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-ticket-alt icon-success"></i><div class="message"><p><strong>Tiket Terjual!</strong> 2 tiket untuk konser Coldplay.</p><small>5 menit yang lalu</small></div></a></li>
+                                <li><a href="#"><i class="fas fa-microphone-alt icon-info"></i><div class="message"><p><strong>Artis Baru!</strong> Taylor Swift ditambahkan ke sistem.</p><small>1 jam yang lalu</small></div></a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer"><a href="#">Lihat Semua Notifikasi</a></div>
+                    </div>
+                </div>
+                <div class="dropdown-wrapper">
+                    <a href="login.html" title="Login" class="header-icon"><i class="fas fa-sign-in-alt"></i></a>
+                </div>
+            </div>
+        </header>
+
+        <aside class="sidebar">
+            <div class="sidebar-user">
+                <img src="logo orang.png" alt="Logo" class="user-avatar">
+                <div class="user-info">
+                    <span class="user-name">Admin Konser</span>
+                    <span class="user-role">Administrator</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <span class="nav-section-title">MENU UTAMA</span>
+                <ul>
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i><span>Beranda</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"><i class="fas fa-compact-disc"></i><span>Manajemen Konser</span><i class="fas fa-chevron-right arrow"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="data-pemesanan.html">Pemesanan Tiket</a></li>
+                            <li><a href="data-konser.html">Jadwal Konser</a></li>
+                            <li><a href="data-artis.html">Manajemen Artis</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h2>Dashboard</h2>
+                <p>Ringkasan data sistem manajemen tiket konser KONSERIN.</p>
+            </div>
+            
+            <div class="info-box-container">
+                <div class="info-box bg-pink">
+                    <div class="icon"><i class="fas fa-ticket-alt"></i></div>
+                    <div class="text">
+                        <span class="title">Tiket Terjual (Bulan Ini)</span>
+                        <span class="value">2,840</span>
+                    </div>
+                </div>
+                <div class="info-box bg-blue">
+                    <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="text">
+                        <span class="title">Konser Tersedia</span>
+                        <span class="value">12</span>
+                    </div>
+                </div>
+                <div class="info-box bg-green">
+                    <div class="icon"><i class="fas fa-microphone-alt"></i></div>
+                    <div class="text">
+                        <span class="title">Jumlah Artis</span>
+                        <span class="value">25</span>
+                    </div>
+                </div>
+                <div class="info-box bg-orange">
+                    <div class="icon"><i class="fas fa-wallet"></i></div>
+                    <div class="text">
+                        <span class="title">Total Pendapatan</span>
+                        <span class="value">Rp 1.2 M</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Statistik Penjualan Tiket</h3>
+                    
+                </div>
+                 <div class="card">
+                    <h3>Jadwal Konser Terdekat</h3>
+                    <ul>
+                        <li><strong>Coldplay</strong> - Gelora Bung Karno - 15 Okt 2025</li>
+                        <li><strong>Taylor Swift</strong> - JIS - 22 Okt 2025</li>
+                        <li><strong>Dewa 19</strong> - Beach City Ancol - 5 Nov 2025</li>
+                        <li><strong>Lana Del Rey</strong> - Smkn1 Ciomas - 5 Dec 2025</li>
+                        <li><strong>Bruno Mars</strong> - Cibinong City Mall - 5 Nov 2025</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    // ===================================
+    // SCRIPT UTAMA UNTUK SEMUA FUNGSI LAYOUT
+    // ===================================
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const pageWrapper = document.querySelector('.page-wrapper');
+        const notificationBell = document.getElementById('notification-bell');
+        const notificationPanel = document.getElementById('notification-panel');
+
+        // 1. Fungsi untuk membuka/menutup Sidebar
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                pageWrapper.classList.toggle('sidebar-collapsed');
+            });
+        }
+
+        // 2. Fungsi untuk Dropdown Menu di Sidebar
+        document.querySelectorAll('.dropdown-toggle').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                let parent = item.parentElement;
+                const isActive = parent.classList.contains('active');
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+
+        // 3. Fungsi untuk Dropdown Notifikasi
+        if (notificationBell) {
+            notificationBell.addEventListener('click', e => {
+                e.preventDefault();
+                e.stopPropagation();
+                notificationPanel.classList.toggle('show');
+            });
+        }
+        window.addEventListener('click', (e) => {
+            if (notificationPanel && notificationPanel.classList.contains('show') && !notificationBell.parentElement.contains(e.target)) {
+                notificationPanel.classList.remove('show');
+            }
+        });
+
+        // ===============================================
+        // SCRIPT KHUSUS HALAMAN INI (CRUD Pemesanan Tiket)
+        // ===============================================
+        const modal = document.getElementById('formModal');
+        const tambahBtn = document.getElementById('tambahBtn');
+        // ... sisa kode CRUD Anda ...
+    });
+</script>
+</body>
+</html>
